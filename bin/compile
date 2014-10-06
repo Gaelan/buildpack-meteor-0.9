@@ -175,6 +175,7 @@ mkdir -p "$BUILD_DIR"/.profile.d
 cat > "$BUILD_DIR"/.profile.d/zmongo.sh <<EOF
 #!/bin/sh
 export MONGO_URL=\$MONGOHQ_URL
+export MAIL_URL=smtp://\$POSTMARK_API_KEY:\$POSTMARK_API_KEY@\$POSTMARK_SMTP_SERVER:25
 EOF
 
 # vendor node into the slug
