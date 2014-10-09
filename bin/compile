@@ -136,7 +136,7 @@ cd $BUILD_DIR
 echo "Installing meteor" | indent
 
 # Using different folder to prevent install script form deleting packages file
-VENDORED_METEOR="$(mktmpdir meteor)"
+VENDORED_METEOR=$CACHE_DIR
 # workaround https://bugs.launchpad.net/ubuntu/+source/openssl/+bug/986147
 echo tlsv1 > $VENDORED_METEOR/.curlrc
 
