@@ -140,6 +140,8 @@ VENDORED_METEOR=$CACHE_DIR
 # workaround https://bugs.launchpad.net/ubuntu/+source/openssl/+bug/986147
 echo tlsv1 > $VENDORED_METEOR/.curlrc
 
+ls -lA $CACHE_DIR
+
 # Try to avoid unnecessary rebuilds by noticing that Meteor is already installed.
 VENDORED_METEOR_MARKER=$VENDORED_METEOR/meteor
 if [ -f $VENDORED_METEOR_MARKER ]; then
