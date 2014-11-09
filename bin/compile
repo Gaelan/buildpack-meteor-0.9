@@ -140,8 +140,14 @@ VENDORED_METEOR=$CACHE_DIR
 # workaround https://bugs.launchpad.net/ubuntu/+source/openssl/+bug/986147
 echo tlsv1 > $VENDORED_METEOR/.curlrc
 
-curl https://install.meteor.com | HOME="$VENDORED_METEOR" /bin/sh | indent
-echo "Meteor installed" | indent
+# Try to avoid unnecessary rebuilds by noticing that Meteor is already installed.
+VENDORED_METEOR_MARKER=$VENDORED_METEOR/meteor
+if [ -f $VENDORED_METEOR_MARKER ] then
+  echo "Meteor install skipped, $VENDORED_METEOR_MARKER exists" | indent
+else
+  curl https://install.meteor.com | HOME="$VENDORED_METEOR" /bin/sh | indent
+  echo "Meteor installed" | indent
+fi
 
 #echo "Installing packages" | indent
 #HOME="$BUILD_DIR" mrt install | indent
