@@ -143,8 +143,8 @@ echo tlsv1 > $VENDORED_METEOR/.curlrc
 ls -lA $VENDORED_METEOR
 
 # Try to avoid unnecessary rebuilds by noticing that Meteor is already installed.
-VENDORED_METEOR_MARKER=$VENDORED_METEOR/meteor
-if [ -f $VENDORED_METEOR_MARKER ]; then
+VENDORED_METEOR_MARKER=$VENDORED_METEOR/.meteor
+if [ -d $VENDORED_METEOR_MARKER ]; then
   echo "Meteor install skipped, $VENDORED_METEOR_MARKER exists" | indent
 else
   echo "No Meteor install found, installing..." | indent
