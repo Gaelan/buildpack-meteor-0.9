@@ -120,7 +120,7 @@ export CPPPATH="$INCLUDE_PATH"
 
 echo "-----> Installing TypeScript with npm"
 
-run_npm "install typescript -g"
+run_npm "install typescript@next -g"
 
 METEOR_BUILD_DIR="$BUILD_DIR/.meteor/heroku_build"
 ############################################
@@ -147,7 +147,7 @@ else
   echo "Meteor installed" | indent
 fi
 echo "Compiling TypeScript" | indent
-tsc -p --noEmitOnError .
+tsc --noEmitOnError -p .
 #echo "Installing packages" | indent
 #HOME="$BUILD_DIR" mrt install | indent
 echo "Building meteor bundle" | indent
